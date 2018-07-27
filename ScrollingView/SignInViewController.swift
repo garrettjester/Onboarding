@@ -10,26 +10,38 @@ import UIKit
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var signUPView: UIView!
     
-    @IBOutlet weak var selector: UIImageView!
+    @IBOutlet weak var signUpSelector: UIImageView!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var signInSelector: UIImageView!
+    @IBOutlet weak var signUpStackView: UIStackView!
+    @IBOutlet weak var signInStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signUPView.layer.opacity = 0
-
-      
-        // Do any additional setup after loading the view.
+        signUpStackView.isHidden = true
+        signInStackView.isHidden = false
+        signUpSelector.isHidden = true
+        signInSelector.isHidden = false
+    
     }
 
     @IBAction func signUpTapped(_ sender: Any) {
-        signUPView.layer.opacity = 1
+        signUpStackView.isHidden = false
+        signInStackView.isHidden = true
+        signUpSelector.isHidden = false
+        signInSelector.isHidden = true
     }
     
-
+    @IBAction func signInTapped(_ sender: UIButton) {
+        signUpStackView.isHidden = true
+        signInStackView.isHidden = false
+        signUpSelector.isHidden = true
+        signInSelector.isHidden = false
+    }
+    
     /*
     // MARK: - Navigation
 
